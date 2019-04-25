@@ -1,5 +1,11 @@
 version: 0.2
 phases:
- deploy:
+ install:
+   commands:
+     - echo "installing dependencies"
+ build:
    commands:
      - aws s3 sync --delete . "s3://theuniquedomainssstt.com"
+ post_build:
+   commands:
+     - echo "executing post build operations"
